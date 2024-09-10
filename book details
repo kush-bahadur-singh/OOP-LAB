@@ -1,0 +1,69 @@
+#include <iostream>
+#include<iostream>
+using namespace std;
+class book{
+private:
+    int bookid;
+    int pages;
+    double price;
+public:
+    void setbookid(int id){
+        bookid=id;
+    }
+    void setpages(int pg){
+        pages=pg;
+    }
+    void setprice(double pr){
+        price=pr;
+    }
+    int getbookid(){
+        return bookid;
+    }
+    int getpages(){
+        return pages;
+    }
+    double getprice(){
+        return price;
+    }
+    void showBookDetails(){
+        
+        cout<<"book id:"<<bookid<<endl;
+        cout<<"pages:"<<pages<<endl; 
+        cout<<"price:"<<price<<endl; 
+        }
+    };
+    int main(){
+        book*obj1=new book;
+        obj1->setbookid(100);
+        obj1->setpages(100);
+        obj1->setprice(10.0);
+        
+        book*obj2=new book;
+        obj2->setbookid(102);
+        obj2->setpages(16);
+        obj2->setprice(12.4);
+        
+        cout<<"Book details 1:"<<endl;
+        obj1->showBookDetails();
+        cout<<"\nBook details 2:"<<endl;
+        obj2->showBookDetails();
+        obj2->showBookDetails();
+        
+        cout<<"\n costlier book is:"<<endl;
+        if(obj1->getprice()>obj2->getprice()){
+         obj1->showBookDetails();}
+         else if(obj1->getprice()<obj2->getprice()){
+         obj2->showBookDetails();
+         }
+        else{cout<<"both book have same price:"<<endl;
+        }
+        delete obj1;
+        delete obj2;
+        return 0;
+    }
+        
+    
+    
+
+
+    
