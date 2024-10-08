@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+class IncNum {
+private:
+    int value;
+public:
+    IncNum(int val = 0) {
+    value = val;
+    }
+
+    friend IncNum& operator++(IncNum& obj) {
+        ++obj.value;
+        return obj;
+    }
+    friend IncNum operator++(IncNum& obj, int) {
+        IncNum temp = obj;
+        obj.value++;
+        return temp;
+    }
+    void display() const {
+        cout << "Value: " << value << endl;
+    }
+};
+
+int main() {
+    IncNum num(10);
+
+    cout << "Initial Value: ";
+    num.display();
+    ++num;
+    cout << "After prefix ++: ";
+    num.display();
+    num++;
+    cout << "After postfix ++: ";
+    num.display();
+
+    return 0;
+}
